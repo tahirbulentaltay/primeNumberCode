@@ -5,7 +5,7 @@ let primeNumbers = document.querySelector("#primeNumbers");
 let nonPrimeNumbers = document.querySelector("#nonPrimeNumbers");
 let sumPrimeNumber = 0;
 let sumNotPrimeNumber = 0;
-let x = 50;
+let x = 25;
 
 for (let i = 2; i <= x; i++) {
     let result = true;
@@ -13,7 +13,8 @@ for (let i = 2; i <= x; i++) {
     for (let j = 2; j <= Math.floor(i / 2); j++) {
 
         if (i % j == 0) {
-            document.write(`<b>${i}</b> not prime number. `)
+            document.write(`--------------------------------<b>${i}</b> not prime number. <br>`)
+            localStorage.setItem("nonPrime", i);
             console.log(i + " not prime number.");
             result = false;
             sumNotPrimeNumber = sumNotPrimeNumber + i;
@@ -22,7 +23,8 @@ for (let i = 2; i <= x; i++) {
         }
     }
     if (result) {
-        document.write(`<b>${i}</b> prime number. `);
+        document.write(`<b>${i}</b> prime number. <br>`);
+        localStorage.setItem("Prime", i);
         console.log(i + " prime number.");
         sumPrimeNumber = sumPrimeNumber + i
         console.log("Sum of the prime numbers: " + sumPrimeNumber);
